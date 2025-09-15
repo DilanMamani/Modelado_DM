@@ -13,7 +13,7 @@ const items = [
     title: "Algoritmo Multiplicativo",
     text:
       "Variante sin incremento: Xi+1 = (a·Xi) mod m. Requiere elegir bien 'a' y 'm' para lograr buenos periodos."
-  },
+  }/*,
   {
     id: "cuadrados",
     title: "Cuadrados Medios",
@@ -25,7 +25,7 @@ const items = [
     title: "Productos Medios",
     text:
       "Multiplica dos semillas y toma los dígitos centrales del producto para obtener el siguiente valor."
-  }
+  }*/
 ];
 
 export default function MethodsGrid() {
