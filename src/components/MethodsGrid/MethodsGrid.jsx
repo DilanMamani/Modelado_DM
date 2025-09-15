@@ -3,40 +3,43 @@ import styles from "./MethodsGrid.module.css";
 
 const items = [
   {
-    id: "cuadrados",
-    title: "Cuadrados Medios",
-    text:
-      "Eleva al cuadrado la semilla y toma los dígitos centrales como número aleatorio."
-  },
-  {
-    id: "productos",
-    title: "Productos Medios",
-    text:
-      "Usa dos semillas; al multiplicarlas, se extraen los dígitos centrales del producto."
-  },
-  {
     id: "lineal",
     title: "Algoritmo Lineal",
     text:
-      "Usa constante multiplicativa, incremento y módulo para generar la secuencia."
+      "Genera Xi+1 = (a·Xi + c) mod m. Usa multiplicador, incremento y un módulo para producir secuencias reproducibles."
   },
   {
     id: "multiplicativo",
     title: "Algoritmo Multiplicativo",
     text:
-      "Como el lineal pero sin incremento; depende solo de la multiplicación y el módulo."
+      "Variante sin incremento: Xi+1 = (a·Xi) mod m. Requiere elegir bien 'a' y 'm' para lograr buenos periodos."
+  },
+  {
+    id: "cuadrados",
+    title: "Cuadrados Medios",
+    text:
+      "Eleva la semilla al cuadrado y extrae los dígitos centrales como nueva semilla; simple pero con periodo corto."
+  },
+  {
+    id: "productos",
+    title: "Productos Medios",
+    text:
+      "Multiplica dos semillas y toma los dígitos centrales del producto para obtener el siguiente valor."
   }
 ];
 
 export default function MethodsGrid() {
   return (
-    <section className="container" id="inicio" aria-label="Métodos de generación">
-      <h1 className="section-title">Generación de Números Aleatorios</h1>
-      <p className="section-subtitle">
-        Los números aleatorios son clave en simulaciones, criptografía y estadística.
-        Estos son algunos métodos clásicos para generarlos.
-      </p>
-
+    <section className={styles.section} id="inicio" aria-labelledby="metodos-title">
+      <div className={styles.header}>
+        <h1 id="metodos-title" className={styles.title}>
+          Generación de Números Aleatorios
+        </h1>
+        <p className={styles.subtitle}>
+          Los números aleatorios son clave en simulaciones, criptografía y estadística.
+          Estos son algunos métodos clásicos para generarlos.
+        </p>
+      </div>
       <div className={styles.grid}>
         {items.map((it) => (
           <Card key={it.id} title={it.title} onClick={() => console.log(it.id)}>

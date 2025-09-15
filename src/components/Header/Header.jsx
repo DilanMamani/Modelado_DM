@@ -1,23 +1,42 @@
 import styles from "./Header.module.css";
-import logo from "../../assets/logo.svg";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 export default function Header() {
   return (
-    <header className={styles.header}>
-      <div className="container">
-        <div className={styles.row}>
-          <div className={styles.brand}>
-            <img src={logo} alt="logo" />
-            <span>Generador de Números Aleatorios</span>
-          </div>
+    <header className={styles.header} role="banner">
+      <div className={styles.inner}>
+        <Link to="/inicio" className={styles.brand} aria-label="Inicio – Proyecto de Modelado">
+          <span className={styles.brandText}>Proyecto de Modelado</span>
+        </Link>
 
-          <nav className={styles.nav}>
-            <Link to="/inicio" className={styles.link}>Inicio</Link>
-            <Link to="/lineal" className={styles.link}>Lineal</Link>
-            <Link to="/multiplicativo" className={styles.link}>Multiplicativo</Link>
-          </nav>
-        </div>
+        <nav className={styles.nav} aria-label="Navegación principal">
+          <ul className={styles.navList}>
+            <li>
+              <NavLink
+                to="/inicio"
+                className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : styles.link}
+              >
+                Inicio
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/lineal"
+                className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : styles.link}
+              >
+                Lineal
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/multiplicativo"
+                className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : styles.link}
+              >
+                Multiplicativo
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
   );
